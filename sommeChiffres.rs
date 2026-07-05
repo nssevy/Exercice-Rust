@@ -12,7 +12,7 @@ fn main () {
 
 	while i > 0 {
 		total += i % 10;
-		i = i / 10;
+		i /= 10;
 	}
 
 	println!("{}", total);
