@@ -5,11 +5,12 @@ Résultat attendu : 42
 
 */
 
+
+fn main () {
+	println!("{:?}", double(21));
+}
+
+
 fn double (a: i32) -> i32 {
 	a * 2
 }
-
-fn main () {
-println!("{:?}", double(21));
-}
-

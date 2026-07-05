@@ -25,7 +25,7 @@ fn main (){
     
     match age {
         v @ 0..=17 => println!("mineur, tu as {:?} ans", v),
-        v @ 18..=64 => println!("adulten, tu as {:?} ans", v),
+        v @ 18..=64 => println!("adulte, tu as {:?} ans", v),
         v => println!{"senior, tu as {} ans", v},
     }
 }

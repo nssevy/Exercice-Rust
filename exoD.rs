@@ -8,7 +8,7 @@ Résultat attendu : false
 
 fn est_majeur (age: i32) -> bool {
 
-	age >= 18 
+	age >= 18
 
 }
 

@@ -20,7 +20,7 @@ assez bien
 */
 
 fn main (){
-    let note: i32 = 14;
+    let note: i32 = 200;
     //elle represente une note sur 20
 
     let resultat = match note{
