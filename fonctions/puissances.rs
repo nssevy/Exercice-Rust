@@ -20,7 +20,26 @@ Le plus grand est 32
 
 */
 
-fn puissance(base: i32, exposant: u32) -> i32 {
+fn plus_grand(a: &[i32]) -> i32 {
+	let mut i: usize = 0;
+	let mut grand: i32 = 0;
+
+	if a == () {
+	
+	}	
+
+	while i < a.len() {
+
+		if a[i] > grand {
+			grand = a[i];
+			i += 1;
+		} else { 
+			i+=1;
+		}
+	} grand
+}
+
+fn _puissance(base: i32, exposant: u32) -> i32 {
 
 	let mut i = 0;
 	let mut total = 1; 
@@ -38,5 +57,10 @@ fn puissance(base: i32, exposant: u32) -> i32 {
 }
 
 fn main () {
-	println!("{}", puissance(4, 3));
+	let v: Vec<i32> = vec![32, 54, 0999, 23];
+	let vide: Vec<i32> = vec![];
+	println!("{}", plus_grand(&v));
+	println!("{}", plus_grand(&vide));
+
+	/* println!("{}", puissance(4, 3)); */
 }
