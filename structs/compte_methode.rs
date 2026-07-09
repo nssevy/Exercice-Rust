@@ -6,3 +6,12 @@ Résultat attendu :
 Solde de Bob : 250
 
 */
+
+struct Compte {
+
+	titulaire: String,
+	solde: u32
+
+}
+
+fn main 

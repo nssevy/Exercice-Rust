@@ -3,12 +3,12 @@ fn addition_tab(a: &[i32]) -> i32 {
     let mut stock: i32 = 0;
 
     while i < a.len() {
-        let valeur = a[i];
-        stock += valeur;
+ 
+        stock += a[i];
 
         i += 1;
     }
-    return stock;
+    return stock
 }
 
 fn main() {
