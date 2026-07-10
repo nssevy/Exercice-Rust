@@ -21,10 +21,10 @@ Le plus grand est 32
 */
 
 fn plus_grand(a: &[i32]) -> Option<i32> {
-	let mut i: usize = 0;
-	let mut grand: i32 = 0;
+	let mut i: usize = 1;
+	let mut grand: i32 = a[i];
 
-	if a.len() > 0 {
+	if a.len() == 0 {
 		return None
 	}	
 
@@ -32,10 +32,9 @@ fn plus_grand(a: &[i32]) -> Option<i32> {
 
 		if a[i] > grand {
 			grand = a[i];
-			i += 1;
-		} else { 
-			i+=1;
 		}
+
+		i+=1;
 	}
 
 	Some(grand)
@@ -59,13 +58,14 @@ fn _puissance(base: i32, exposant: u32) -> i32 {
 }
 
 fn main () {
-	let _v: Vec<i32> = vec![32, 54, 0999, 23];	
-	/* println!("{}", plus_grand(&v)); */
+	let v: Vec<i32> = vec![32, 54, 0999, 23];	
+	println!("{:?}", plus_grand(&v).unwrap());
 
 	let vide: Vec<i32> = vec![];
-	
-	let vec_vide = plus_grand(&vide)?;
-	println!("{:?}", vec_vide)
+	println!("{:?}", plus_grand(&vide));
+
+	let v_negatif: Vec<i32> = vec![-91, -9, -8, -3];
+	println!("{:?}", plus_grand(&v_negatif).unwrap());
 
 	/* println!("{}", puissance(4, 3)); */
 }
