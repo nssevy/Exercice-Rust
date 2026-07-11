@@ -20,12 +20,17 @@ Le plus grand est 32
 
 */
 
-/*
-
 fn afficher_bilan(base: i32, resultat: &[i32]) {
-	
-	println!("Le plus grand est");
-} */
+    let mut i: usize = 0;
+
+    while i <= 5 {
+        println!("{} ^ {} = {}", base, i, resultat[i]);
+
+        i += 1;
+    }
+
+    println!("Le plus grand est {:?}", plus_grand(&resultat).unwrap());
+}
 
 fn plus_grand(a: &[i32]) -> Option<i32> {
     let mut i: usize = 0;
@@ -64,16 +69,14 @@ fn puissance(base: i32, exposant: i32) -> i32 {
 }
 
 fn main() {
+    let mut v: Vec<i32> = vec![];
+    let mut i: i32 = 0;
 
-	let mut v: Vec<i32> = vec![];
-	
-	let mut i: i32 = 0;
+    while i <= 5 {
+        v.push(puissance(2, i));
 
-	while i <= 5 {
-		v.push(puissance(2, i));
-		i+= 1;
-	}
-	
-	println!("{:?}", &v);
-   
+        i += 1;
+    }
+
+    afficher_bilan(2, &v);
 }
