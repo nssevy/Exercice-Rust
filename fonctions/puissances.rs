@@ -20,53 +20,60 @@ Le plus grand est 32
 
 */
 
-fn plus_grand(a: &[i32]) -> Option<i32> {
-	let mut i: usize = 0;
+/*
 
-	if a.len() == 0 {
-		return None
-	}
-
-	let mut grand: i32 = a[i];
-
-	while i < a.len() {
-
-		if a[i] > grand {
-			grand = a[i];
-		}
-
-		i+=1;
-	}
-
-	Some(grand)
-}
-
-fn _puissance(base: i32, exposant: u32) -> i32 {
-
-	let mut i = 0;
-	let mut total = 1; 
+fn afficher_bilan(base: i32, resultat: &[i32]) {
 	
-	if exposant == 0 {
-		 return 1;
-	} 
+	println!("Le plus grand est");
+} */
 
-	while i  < exposant {
-		total *= base;
-		i += 1;
-	}
+fn plus_grand(a: &[i32]) -> Option<i32> {
+    let mut i: usize = 0;
 
-	total
+    if a.len() == 0 {
+        return None;
+    }
+
+    let mut grand: i32 = a[i];
+
+    while i < a.len() {
+        if a[i] > grand {
+            grand = a[i];
+        }
+
+        i += 1;
+    }
+
+    Some(grand)
 }
 
-fn main () {
-	let v: Vec<i32> = vec![32, 54, 0999, 23];	
-	println!("{:?}", plus_grand(&v).unwrap());
+fn puissance(base: i32, exposant: i32) -> i32 {
+    let mut i = 0;
+    let mut total = 1;
 
-	let vide: Vec<i32> = vec![];
-	println!("{:?}", plus_grand(&vide));
+    if exposant == 0 {
+        return 1;
+    }
 
-	let v_negatif: Vec<i32> = vec![-91, -9, -8, -3];
-	println!("{:?}", plus_grand(&v_negatif).unwrap());
+    while i < exposant {
+        total *= base;
+        i += 1;
+    }
 
-	/* println!("{}", puissance(4, 3)); */
+    total
+}
+
+fn main() {
+
+	let mut v: Vec<i32> = vec![];
+	
+	let mut i: i32 = 0;
+
+	while i <= 5 {
+		v.push(puissance(2, i));
+		i+= 1;
+	}
+	
+	println!("{:?}", &v);
+   
 }
