@@ -21,12 +21,13 @@ Le plus grand est 32
 */
 
 fn plus_grand(a: &[i32]) -> Option<i32> {
-	let mut i: usize = 1;
-	let mut grand: i32 = a[i];
+	let mut i: usize = 0;
 
 	if a.len() == 0 {
 		return None
-	}	
+	}
+
+	let mut grand: i32 = a[i];
 
 	while i < a.len() {
 
