@@ -19,7 +19,7 @@ fn plus_grand (a: &[i32]) -> Option<i32> {
 	let mut i: usize = 0;
 	let mut grand: i32 = a[i];	
 	
-	if a == None {
+	if a.len() < i {
 		return None
 	}	
 
@@ -29,14 +29,15 @@ fn plus_grand (a: &[i32]) -> Option<i32> {
 		}
 		i += 1;
 	}
-	Some(())
+	Some(grand)
 }
 
 
 fn main () {
+
 	let tab_p: Vec<i32> = vec![3, 7, 2, 9, 4];
 	let _tab_v: Vec<i32> = vec![];
 	
-	println!("{:?}", plus_grand(&tab_p));
+	println!("{:?}", plus_grand(&tab_p).unwrap());
 
 }
