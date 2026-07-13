@@ -70,10 +70,11 @@ fn puissance(base: i32, exposant: i32) -> i32 {
 
 fn main() {
     let mut v: Vec<i32> = vec![];
-    let mut i: i32 = 0;
+    let mut i: u32 = 0;
 
     while i <= 5 {
-        v.push(puissance(2, i));
+
+        v.push(puissance(2, i) );
 
         i += 1;
     }
