@@ -8,6 +8,26 @@
 
 */
 
+        fn egal (c: &[i32]) -> i32 {
+
+                let mut i: usize = 0;
+                let mut valeur: i32 = 0;
+
+                while i < c.len()-1 {
+
+                        if c[i] == c[i+1]{
+                                valeur = 4;
+                                i+=1;
+                        } else {
+                                valeur = 5;
+                                return valeur;
+                        }
+
+                }
+
+        valeur
+        }
+
 fn croissant (c: &[i32]) -> i32 {
 
 	let mut i: usize = 0;
@@ -18,6 +38,9 @@ fn croissant (c: &[i32]) -> i32 {
 		if c[i] <= c[i+1]{
 			valeur = 1;
 			i+=1;
+		} else {
+			valeur = 0;
+			return valeur;
 		}
 
         }
@@ -35,7 +58,10 @@ fn decroissant (d: &[i32]) -> i32 {
                 if d[i] >= d[i+1]{
                         valeur = 2;
                         i+=1;
-                }
+                } else {
+			valeur = 0;
+			return valeur;
+		}
 
         }
 
@@ -47,27 +73,30 @@ fn verificateur_de_tableau(a: &[i32]) -> i32 {
 	Dans la fonction les valeurs de croissant sont défini par : 
 	
 	0 = tableau pas trier
-	1 = Tableau dans l'ordre croissant
+	1 = Tableau croissant
 	2 = Tableau décroissant
 	3 = Tableau vide ou pas assez d'éléments pour comparer (au mininmum 2)
+	4 = Tableau à valeur egaux
 	*/
 	
 	let i: usize = 0;
 	let mut valeur_retour: i32 = 0;
 
 	if a.len() < 2 {
-		valeur_retour  = 3;
+		valeur_retour = 3;
 		return valeur_retour;
 	}
 	
-	if a[i] < a[i+1] {
-		croissant(&a)
-	} else if a[i] > a [i+1]{
-		decroissant(&a)
-	} else {
-		valeur_retour = 0;
+	if egal(&a) == 4 {
+		valeur_retour = 4;
 		return valeur_retour;
+	
+	} else if a[i] < a[i+1] {
+		croissant(&a)
+	} else {
+		decroissant(&a)
 	}
+	
 	
 }
 
@@ -77,7 +106,7 @@ fn main () {
 	
 	let tab_pas_trier: Vec<i32> = vec![2, 23, 2, 34, 56];
 
-	let _tab_doublon: Vec<i32> = vec![23, 23, 34, 56];
+	let tab_doublon: Vec<i32> = vec![23, 23, 34, 56];
 
 	let aleatoire: Vec<i32> = vec![];
 
@@ -90,5 +119,7 @@ fn main () {
 	println!("{:?}", verificateur_de_tableau(&aleatoire));
 
 	println!("{:?}", verificateur_de_tableau(&tab_pas_trier));
+
+	println!("{:?}", verificateur_de_tableau(&tab_doublon));
 }
 
