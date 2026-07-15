@@ -80,7 +80,7 @@ fn verificateur_de_tableau(a: &[i32]) -> i32 {
 	*/
 	
 	let i: usize = 0;
-	let mut valeur_retour: i32 = 0;
+	let valeur_retour: i32;
 
 	if a.len() < 2 {
 		valeur_retour = 3;
@@ -111,6 +111,8 @@ fn main () {
 	let aleatoire: Vec<i32> = vec![];
 
 	let decroissant: Vec<i32> = vec![100, 50, 25, 1];
+
+	let tab_egal : Vec<i32> = vec![40, 40, 40, 40];
 	
 	println!("{:?}", verificateur_de_tableau(&tab_trier));	
  
@@ -121,5 +123,7 @@ fn main () {
 	println!("{:?}", verificateur_de_tableau(&tab_pas_trier));
 
 	println!("{:?}", verificateur_de_tableau(&tab_doublon));
+	
+	println!("{:?}", verificateur_de_tableau(&tab_egal));
 }
 
