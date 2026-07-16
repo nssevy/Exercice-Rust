@@ -1,11 +1,10 @@
 #![allow(unused)]
 
+const PAS_TRIER: i32 = 0;
 const CROISSANT: i32 = 1;
 const DECROISSANT: i32 = 2;
 const EGAL: i32 = 3;
 const VIDE: i32 = 4;
-
-const _PAS_TRIER: i32 = 5;
 
 fn vide(a: &[i32]) -> Option<i32> {
 
@@ -21,6 +20,9 @@ fn croissant(a: &[i32]) -> Option<i32> {
 
     let mut i: usize = 0;
 
+    /* is.none() renvoie true si l'option est None
+    * Donc si le tableau n'est pas vide (egal à None) execute la boucle,
+    * sinon retourne None directement */
     if vide(&a).is_none() == true {
 
         while i < a.len()-1 {
@@ -71,8 +73,9 @@ fn verify_tableau (a: &[i32]) {
     let d = decroissant(a).unwrap_or(0);
     
     /* Pour debuger
-    * println!("{v}{c}{d}");
+    println!("{v}{c}{d}");
     */
+    
     
 
     let valeur_retour_tab: i32 = c + d + v;
@@ -84,13 +87,14 @@ fn verify_tableau (a: &[i32]) {
 *   de la fonction qui a ete executer jsuqu'a la fin
 *   */
 
-    println!("{valeur_retour_tab}");
+    /* println!("{valeur_retour_tab}"); */
 
     match valeur_retour_tab {
         CROISSANT => { println!("Le tableau est croissant"); }
         DECROISSANT => { println!("Le tableau est decroissant"); }
         EGAL => { println!("Toutes les valeurs du tableau sont egales"); }
         VIDE => { println!("Le tableau est vide ou bien ne contient pas assez d'éléments"); }
+        PAS_TRIER => { println!("Le tableau n'est pas trier"); }
         _      => { println!("Ce tableau n'est pas dans nos données"); }
     }
 
@@ -102,10 +106,12 @@ fn main() {
     let tableau_egal: Vec<i32> = vec![30, 30, 30, 30, 30];
     let tableau_croissant_egal: Vec<i32> = vec![30, 30, 30, 30, 60];
     let tableau_vide: Vec<i32> = vec![];
+    let tableau_pas_trier: Vec<i32> = vec![1, 30, 7, 30, 60];
 
     verify_tableau(&tableau_croissant);
     verify_tableau(&tableau_decroissant);
     verify_tableau(&tableau_egal);
-    verify_tableau(&tableau_croissant_egal);
+    verify_tableau(&tableau_croissant_egal); 
     verify_tableau(&tableau_vide);
+    verify_tableau(&tableau_pas_trier);
 }
