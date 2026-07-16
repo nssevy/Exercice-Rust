@@ -40,17 +40,26 @@ fn decroissant(a: &[i32]) -> Option<i32> {
 }
 
 fn verify_tableau (a: &[i32]) {
-    let a = croissant(a);
-    let b = decroissant(a);
+    let c = croissant(a).unwrap_or(0);
+    let d = decroissant(a).unwrap_or(0);
 
-    println!("{:?}", a);
-    println!("{:?}", b);
+    let valeur_retour_tab: i32 = c + d;
+
+    println!("{valeur_retour_tab}");
+
+    match valeur_retour_tab {
+        1 => { println!("Le tableau est croissant"); }
+        2 => { println!("Le tableau est decroissant"); }
+        _      => { println!("Ce tableau n'est pas dans nos données"); }
+    }
+
 }
 
 fn main() {
     let tableau_croissant: Vec<i32> = vec![3, 5, 9, 10, 30];
-    let _tableau_decroissant: Vec<i32> = vec![30, 10, 9, 5, 3];
+    let tableau_decroissant: Vec<i32> = vec![30, 10, 9, 5, 3];
 
     verify_tableau(&tableau_croissant);
+    verify_tableau(&tableau_decroissant);
 
 }
