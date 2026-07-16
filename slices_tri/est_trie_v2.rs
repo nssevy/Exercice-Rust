@@ -1,7 +1,7 @@
 const CROISSANT: i32 = 1;
 const DECROISSANT: i32 = 2;
+const EGAL: i32 = 3;
 
-const _EGAL: i32 = 3;
 const _VIDE: i32 = 4;
 const _PAS_TRIER: i32 = 5;
 
@@ -43,13 +43,19 @@ fn verify_tableau (a: &[i32]) {
     let c = croissant(a).unwrap_or(0);
     let d = decroissant(a).unwrap_or(0);
 
+    /* 
+    * Pour debuger
+    * println!("{c}{d}");
+    */
+
     let valeur_retour_tab: i32 = c + d;
 
     println!("{valeur_retour_tab}");
 
     match valeur_retour_tab {
-        1 => { println!("Le tableau est croissant"); }
-        2 => { println!("Le tableau est decroissant"); }
+        CROISSANT => { println!("Le tableau est croissant"); }
+        DECROISSANT => { println!("Le tableau est decroissant"); }
+        EGAL => { println!("Les valeurs du tableau sont tous egaux"); }
         _      => { println!("Ce tableau n'est pas dans nos données"); }
     }
 
@@ -58,8 +64,12 @@ fn verify_tableau (a: &[i32]) {
 fn main() {
     let tableau_croissant: Vec<i32> = vec![3, 5, 9, 10, 30];
     let tableau_decroissant: Vec<i32> = vec![30, 10, 9, 5, 3];
+    let tableau_egal: Vec<i32> = vec![30, 30, 30, 30, 30];
+    let tableau_croissant_egal: Vec<i32> = vec![30, 30, 30, 30, 60];
 
     verify_tableau(&tableau_croissant);
     verify_tableau(&tableau_decroissant);
+    verify_tableau(&tableau_egal);
+    verify_tableau(&tableau_croissant_egal);
 
 }
