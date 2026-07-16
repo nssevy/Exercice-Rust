@@ -1,4 +1,4 @@
-#![allow(unused)]
+/* #![allow(unused)] */
 
 const PAS_TRIER: i32 = 0;
 const CROISSANT: i32 = 1;
@@ -9,7 +9,7 @@ const VIDE: i32 = 4;
 fn vide(a: &[i32]) -> Option<i32> {
 
         if a.len() < 2 {
-            VIDE;
+            
         } else {
             return None;
         }
@@ -66,6 +66,36 @@ fn decroissant(a: &[i32]) -> Option<i32> {
     Some(DECROISSANT)
 }
 
+/* 
+* Pour la fonction verify_tableau, elle prends en paramètre une slice (un tableau)
+* et elle vient tester ce tableau avec 3 fonctions, qui sont des type options.
+* Elles retournent donc soit None (null) soit une valeur défini en haut dans les CONST.
+*
+* A partir de cette valeur on peut determiner comment les valeurs du tableau sont trier
+* (croissant decroissant etc...)
+*
+*
+* Si le tableau est vide :
+*
+* On le test pas dans la fonction croissant et decroissant
+* car sinon ca mettrait une erreur "vous essayez d'acceder à un index inxecistant" car
+* pas d'éléments.
+*
+*
+* Si le tableau est egal : 
+*
+* La fonction croissant et decroissant retourne toutes les deux
+* leur valeur soit 1 et 2, et comme la variable valeur_retour_tab additionne le resultat
+* des 3 fonctions, ca donne 0 + 1 + 2 = 3, et 3 est difinit dans les Const c'est donc egal.
+*
+*
+* Si le tableau n'est pas trier : 
+*
+* Valeur_retour_tab est egal à 0 car les variables v, c et d sont egal à 0. 
+* Car les 3 fonctions renvoient None soit 0, et 0 + 0 + 0 = 0, et la const VIDE est egal à 0
+*
+*/
+
 fn verify_tableau (a: &[i32]) {
     
     let v = vide(a).unwrap_or(0); 
@@ -75,17 +105,8 @@ fn verify_tableau (a: &[i32]) {
     /* Pour debuger
     println!("{v}{c}{d}");
     */
-    
-    
 
     let valeur_retour_tab: i32 = c + d + v;
-
-    /* Le cas de egal est gerer par la somme de c + d, qui retourne tl2
-*   une valeur si le tableau est egal, donc la somme des deux valeur est de 3.
-*   si dans une des fonctions l'élement d'apres est plus sgrand ou plus petit 
-*   la fonction en court echoue et revoie null, on recupere donc que la result
-*   de la fonction qui a ete executer jsuqu'a la fin
-*   */
 
     /* println!("{valeur_retour_tab}"); */
 
