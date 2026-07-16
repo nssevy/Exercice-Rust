@@ -23,7 +23,7 @@ fn croissant(a: &[i32]) -> Option<i32> {
     /* is.none() renvoie true si l'option est None
     * Donc si le tableau n'est pas vide (egal à None) execute la boucle,
     * sinon retourne None directement */
-    if vide(&a).is_none() == true {
+    if vide(a).is_none() {
 
         while i < a.len()-1 {
 
@@ -46,7 +46,7 @@ fn decroissant(a: &[i32]) -> Option<i32> {
 
     let mut i: usize = 0;
 
-    if vide(&a).is_none() == true {
+    if vide(a).is_none() {
 
     while i < a.len()-1 {
 
