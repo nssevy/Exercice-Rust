@@ -14,7 +14,7 @@ Feu actuel : 60 secondes, passage : false
 Feu suivant : 45 secondes, passage : true
 */
 
-#![allow(dead_code)]
+/* #![allow(dead_code)] */
 
 enum Feu {
     Rouge,
@@ -28,8 +28,8 @@ impl Feu {
 
         match self {
             Feu::Rouge => 60,
-            Feu::Vert => 5,
-            Feu::Orange => 45,
+            Feu::Vert => 45,
+            Feu::Orange => 5,
         }
 
     }
@@ -54,9 +54,12 @@ impl Feu {
 }
 
 fn main() {
+    let feu = Feu::Rouge;
 
-    println!("Feu actuel : {} secondes, passage : {:?}", Feu::Rouge.duree(), Feu::Rouge.peut_passer());
-    println!("Feu suivant : {} secondes, passage : {:?}", Feu::Orange.duree(), Feu::Vert.peut_passer());
+    println!("Feu actuel : {} secondes, passage : {:?}", feu.duree(), feu.peut_passer());
 
-    let _feu_rouge: Feu = Feu::Rouge;
+    feu.suivant();
+
+    println!("Feu suivant : {} secondes, passage : {:?}", feu.duree(), feu.peut_passer());
+ 
 }
