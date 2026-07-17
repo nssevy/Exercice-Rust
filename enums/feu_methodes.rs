@@ -21,11 +21,24 @@ enum Feu {
 }
 
 impl Feu {
-    duree(&self) -> u32,
-    peut_passer(&self) -> bool,
-    suivant(&self) -> Feu
+    fn duree(&self) -> u32 {
+    
+    }
+
+    fn peut_passer(&self) -> bool {
+    
+        match self {
+            Feu::Rouge => true,
+            _ => false,
+        }
+
+    }
+
+    fn suivant(&self) -> Feu {
+
+    }
 }
 
 fn main() {
-    let feu_rouge: Feu = Feu::Rouge
+    let _feu_rouge: Feu = Feu::Rouge;
 }
