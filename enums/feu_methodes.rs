@@ -35,7 +35,12 @@ impl Feu {
     }
 
     fn suivant(&self) -> Feu {
-
+        
+        match self {
+            Feu::Rouge => Feu::Vert,
+            Feu::Vert => Feu::Orange,
+            Feu::Orange => Feu::Rouge,
+        }
     }
 }
 
