@@ -15,7 +15,7 @@ Feu suivant : 45 secondes, passage : true
 */
 
 /* #![allow(dead_code)] */
-
+#[derive(Debug)]
 enum Feu {
     Rouge,
     Orange,
@@ -58,8 +58,10 @@ fn main() {
 
     println!("Feu actuel : {} secondes, passage : {:?}", feu.duree(), feu.peut_passer());
 
-    feu.suivant();
+    let suivant = feu.suivant();
 
-    println!("Feu suivant : {} secondes, passage : {:?}", feu.duree(), feu.peut_passer());
+    /* dbg!(&suivant); */
+
+    println!("Feu suivant : {} secondes, passage : {:?}", suivant.duree(), suivant.peut_passer());
  
 }
