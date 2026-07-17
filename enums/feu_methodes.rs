@@ -14,6 +14,8 @@ Feu actuel : 60 secondes, passage : false
 Feu suivant : 45 secondes, passage : true
 */
 
+#![allow(dead_code)]
+
 enum Feu {
     Rouge,
     Orange,
@@ -21,14 +23,21 @@ enum Feu {
 }
 
 impl Feu {
+
     fn duree(&self) -> u32 {
-    
+
+        match self {
+            Feu::Rouge => 60,
+            Feu::Vert => 5,
+            Feu::Orange => 45,
+        }
+
     }
 
     fn peut_passer(&self) -> bool {
     
         match self {
-            Feu::Rouge => true,
+            Feu::Vert => true,
             _ => false,
         }
 
@@ -45,5 +54,9 @@ impl Feu {
 }
 
 fn main() {
+
+    println!("Feu actuel : {} secondes, passage : {:?}", Feu::Rouge.duree(), Feu::Rouge.peut_passer());
+    println!("Feu suivant : {} secondes, passage : {:?}", Feu::Orange.duree(), Feu::Vert.peut_passer());
+
     let _feu_rouge: Feu = Feu::Rouge;
 }
