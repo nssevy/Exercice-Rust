@@ -12,17 +12,23 @@ struct Compte {
 	solde: u32,
 }
 
-impl Compte {
-    fn deposer(&self) -> u32 {
-        
-    }
+
+fn deposer(s: &mut Compte, argent: u32) {
+    let new_solde = s.solde + argent;
+
+    s.solde = new_solde
 }
 
-fn main() {
-    let Yves = Compte {
-        titulaire: &str("Yves");
-        solde: 
-    }
 
-    println!("Solde de {} : {} ", Yves.titulaire, Yves.solde);
+fn main() {
+
+    let mut yves = Compte {
+        titulaire: String::from("Yves"),
+        solde: 0,
+    };
+
+    deposer(&mut yves, 125);
+    deposer(&mut yves, 125);
+
+    println!("Solde de {} : {} ", yves.titulaire, yves.solde);
 }
