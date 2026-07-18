@@ -16,7 +16,7 @@ Cafe : insere 90 centimes, prix 80, rendu 10 centimes
 Chocolat : insere 70 centimes, prix 90, il manque 20 centimes
 
 */
-
+#![allow(dead_code)]
 enum Piece {
     // Centimes
     Dix,
@@ -39,17 +39,17 @@ impl Piece {
         match self {
             // valeur en centimes
             Piece::Dix => 10,
-            Piece::Vignt => 20,
-            Piece::Cenquante => 50,
+            Piece::Vingt => 20,
+            Piece::Cinquante => 50, 
             Piece::UnEuro => 100,
-            Piece::Deux => 200,
+            Piece::DeuxEuros => 200,
         }
     }
 
 }
 
 impl Boisson {
-
+    // Donne une valeur aux boissons.
     fn prix(&self) -> u32 {
         match self {
             Boisson::Cafe => 80,
@@ -57,13 +57,47 @@ impl Boisson {
             Boisson::Chocolat => 90,
         }
     }
+    // Vient recuperer le nom de la boisson.
+    fn nom(&self) -> String {
+        match self {
+            Boisson::Cafe => String::from("Café"),
+            Boisson::The => String::from("Thé"),
+            Boisson::Chocolat => String::from("Chocolat"),
+        }
+    }
 
 }
 
 fn acheter(boisson: &Boisson, pieces: &[Piece]) {
+    // Pour la boucle while
+    let mut i: usize = 0;
+    // Argent est la variable dans laquelle on va stocker la valeur des pieces saisis.
+    let mut argent = 0;
+    // Prix permet de recuperer le prix.
+    let prix = boisson.prix();
+    // Boisson permet de recuperer le nom (str).
+    let nom = boisson.nom();
     
+    //Additionne la valeur des pieces saissis.
+    while i < pieces.len() {
+        argent += pieces[i].valeur();
+        i += 1;
+    }
+
+    if argent > prix {
+        let rendu = argent - prix;
+        println!("{} : insere {} centimes, Prix {}, rendu {}",nom, argent, prix, rendu);
+    } else {
+        let manque = prix - argent;
+        println!("{} : insere {} centimes, Prix {}, il manque {}",nom, argent, prix, manque);
+    }
+ 
 }
 
 fn main() {
-    acheter(&Boisson::Cafe, 90)
+    let piece = [Piece::Cinquante, Piece::Vingt, Piece::Dix, Piece::Dix];
+    acheter(&Boisson::Cafe, &piece);
+
+    let piece2 = [Piece::Cinquante, Piece::Vingt];
+    acheter(&Boisson::Chocolat, &piece2);
 }
