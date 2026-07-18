@@ -86,10 +86,10 @@ fn acheter(boisson: &Boisson, pieces: &[Piece]) {
 
     if argent >= prix {
         let rendu = argent - prix;
-        println!("{} : insere {} centimes, Prix {}, rendu {}",nom, argent, prix, rendu);
+    println!("{} : insere {} centimes, Prix {}, rendu {} centimes",nom, argent, prix, rendu);
     } else {
         let manque = prix - argent;
-        println!("{} : insere {} centimes, Prix {}, il manque {}",nom, argent, prix, manque);
+        println!("{} : insere {} centimes, Prix {}, il manque {} centimes",nom, argent, prix, manque);
     }
  
 }
