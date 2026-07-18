@@ -8,10 +8,21 @@ Solde de Bob : 250
 */
 
 struct Compte {
-
 	titulaire: String,
-	solde: u32
-
+	solde: u32,
 }
 
-fn main 
+impl Compte {
+    fn deposer(&self) -> u32 {
+        
+    }
+}
+
+fn main() {
+    let Yves = Compte {
+        titulaire: &str("Yves");
+        solde: 
+    }
+
+    println!("Solde de {} : {} ", Yves.titulaire, Yves.solde);
+}
