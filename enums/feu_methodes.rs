@@ -23,28 +23,22 @@ enum Feu {
 }
 
 impl Feu {
-
     fn duree(&self) -> u32 {
-
         match self {
             Feu::Rouge => 60,
             Feu::Vert => 45,
             Feu::Orange => 5,
         }
-
     }
 
     fn peut_passer(&self) -> bool {
-    
         match self {
             Feu::Vert => true,
             _ => false,
         }
-
     }
 
     fn suivant(&self) -> Feu {
-        
         match self {
             Feu::Rouge => Feu::Vert,
             Feu::Vert => Feu::Orange,
@@ -56,12 +50,16 @@ impl Feu {
 fn main() {
     let feu = Feu::Rouge;
 
-    println!("Feu actuel : {} secondes, passage : {:?}", feu.duree(), feu.peut_passer());
-
+    println!(
+        "Feu actuel : {} secondes, passage : {:?}",
+        feu.duree(),
+        feu.peut_passer()
+    );
     let suivant = feu.suivant();
-
-    /* dbg!(&suivant); */
-
-    println!("Feu suivant : {} secondes, passage : {:?}", suivant.duree(), suivant.peut_passer());
- 
+    // dbg!(&suivant);
+    println!(
+        "Feu actuel : {} secondes, passage : {:?}",
+        suivant.duree(),
+        suivant.peut_passer()
+    );
 }
