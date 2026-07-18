@@ -58,11 +58,11 @@ impl Boisson {
         }
     }
     // Vient recuperer le nom de la boisson.
-    fn nom(&self) -> String {
+    fn nom(&self) -> &str {
         match self {
-            Boisson::Cafe => String::from("Café"),
-            Boisson::The => String::from("Thé"),
-            Boisson::Chocolat => String::from("Chocolat"),
+            Boisson::Cafe => "Café",
+            Boisson::The => "Thé",
+            Boisson::Chocolat => "Chocolat",
         }
     }
 
@@ -84,7 +84,7 @@ fn acheter(boisson: &Boisson, pieces: &[Piece]) {
         i += 1;
     }
 
-    if argent > prix {
+    if argent >= prix {
         let rendu = argent - prix;
         println!("{} : insere {} centimes, Prix {}, rendu {}",nom, argent, prix, rendu);
     } else {
