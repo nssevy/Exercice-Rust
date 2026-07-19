@@ -11,7 +11,7 @@ Résultat attendu à l'exécution (l'emplacement exact des pièces t'appartient,
 . . . . . R . .
 . . . . . . . .
 */
-// #[allow(dead_code)]
+#[allow(dead_code)]
 enum PieceType {
     Roi,
     Dame,
@@ -19,26 +19,36 @@ enum PieceType {
     Tour,
     Fou,
     Pion,
+    Vide,
 }
 
 impl PieceType {
-    fn piece_en_lettre(&self) -> &str {
+    fn piece_en_lettre(&self) -> char {
         match self {
-            PieceType::Roi => "R",
-            PieceType::Dame => "D",
-            PieceType::Cavalier => "C",
-            PieceType::Tour => "T",
-            PieceType::Fou => "F",
-            PieceType::Pion => "P",
+            PieceType::Roi => 'R',
+            PieceType::Dame => 'D',
+            PieceType::Cavalier => 'C',
+            PieceType::Tour => 'T',
+            PieceType::Fou => 'F',
+            PieceType::Pion => 'P',
+            PieceType::Vide => '.',
         }
     }
 }
 
 fn tableau(){
-
+    let i: usize = 0;
+    while i < 8{
+        print(vide);
+        i+= 1;
+    }
 }
 
 fn main() {
-    let roi = PieceType::Roi.piece_en_lettre();
-    println!("{roi}");
+    let _roi = PieceType::Roi.piece_en_lettre();
+    let vide = PieceType::Vide.piece_en_lettre();
+
+    let _echequier = vec![vide];
+
+    println!("{:?}", tableau());
 }
