@@ -37,23 +37,56 @@ impl PieceType {
 }
 
 fn echequier(){
-    let mut i: usize = 1;
+    // variable pour les boucles.
+    let mut l: usize = 1;
+    let mut c: usize = 1;
+    let mut i: usize = 0;
+    let mut j: usize = 0;
+
+    // Variables des pices.
     let vide = PieceType::Vide.piece_en_lettre();
 
+    // Variables des tableaux pour les lignes et colonne.
     let mut ligne = vec![];
-    let mut colonne = vec![];
+    let mut colonne = vec![]; 
 
-    while i <= 8{
+    while l <= 8{
         ligne.push(vide);
-        i+= 1;
+        l+= 1;
     } 
-    
-    println!("{:?}", ligne);
-    
 
-    /* for p in ligne.iter(){
-        print!("{p}");
+    // println!("{:?}", ligne); 
+
+    while c <= 8 {
+        colonne.push(ligne.clone());
+        c += 1;
+    }
+
+    // println!("{:?}", colonne);
+     
+    /* while i <= 8 {
+        println!("{:?}", colonne[i].iter());
+        i += 1;
     } */
+
+   
+
+        /* while i < 8 {
+            print!("{}", colonne[i][j]);  
+                   
+            i+= 1; 
+        } */
+
+        while i < 8 {
+            while j < 8 {
+                print!("{}", colonne[i][j]);
+                j += 1;
+            }
+            println!();
+            i+= 1;
+        }
+     
+   
 }
 
 fn main() {
@@ -62,5 +95,5 @@ fn main() {
 
     // let _echequier = vec![vide];
 
-    println!("{:?}", echequier());
+    echequier();
 }
