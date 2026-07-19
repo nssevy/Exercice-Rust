@@ -19,6 +19,12 @@ fn deposer(s: &mut Compte, argent: u32) {
     s.solde = new_solde
 }
 
+fn retirer(s: &mut Compte, somme: u32) {
+    let new_solde = s.solde - somme;
+
+    s.solde = new_solde
+}
+
 
 fn main() {
 
@@ -29,6 +35,7 @@ fn main() {
 
     deposer(&mut yves, 125);
     deposer(&mut yves, 125);
+    retirer(&mut yves, 50);
 
     println!("Solde de {} : {} ", yves.titulaire, yves.solde);
 }
