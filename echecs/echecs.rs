@@ -36,19 +36,31 @@ impl PieceType {
     }
 }
 
-fn tableau(){
-    let i: usize = 0;
-    while i < 8{
-        print(vide);
+fn echequier(){
+    let mut i: usize = 1;
+    let vide = PieceType::Vide.piece_en_lettre();
+
+    let mut ligne = vec![];
+    let mut colonne = vec![];
+
+    while i <= 8{
+        ligne.push(vide);
         i+= 1;
-    }
+    } 
+    
+    println!("{:?}", ligne);
+    
+
+    /* for p in ligne.iter(){
+        print!("{p}");
+    } */
 }
 
 fn main() {
     let _roi = PieceType::Roi.piece_en_lettre();
-    let vide = PieceType::Vide.piece_en_lettre();
+    // let vide = PieceType::Vide.piece_en_lettre();
 
-    let _echequier = vec![vide];
+    // let _echequier = vec![vide];
 
-    println!("{:?}", tableau());
+    println!("{:?}", echequier());
 }
