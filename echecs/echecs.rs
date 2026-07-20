@@ -46,6 +46,8 @@ fn echequier() {
 
     // Pieces.
     let vide = PieceType::Vide.piece_en_lettre();
+    let tour = PieceType::Tour.piece_en_lettre();
+    let roi = PieceType::Roi.piece_en_lettre();
 
     // Initialisation des deux tableaux vides.
     let mut ligne = vec![];
@@ -63,20 +65,22 @@ fn echequier() {
         c += 1;
     }
 
+    // Place les pieces sur le plateau
+    colonne[2][2] = tour;
+    colonne[6][5] = roi;
+
     /* Affiche le plateau (tableau)
-    * i = index 0
-    * j = les éléments à l'interrieur de i.
+    * i -> ligne
+    * j -> colonne
     */
     while i < 8 {
-        while j < 8 {
+        while j < 8 {  
             print!("{} ", colonne[i][j]);
             j += 1;
-        }
-        // Retour à la ligne
-        println! {};
-        // Reset j pour re-parcourir de l'index 0
-        j = 0;
+        } 
+        println!(); // Retour à la ligne
         i += 1;
+        j = 0; // Reset j pour re-parcourir de l'index 0 
     }
 }
 
