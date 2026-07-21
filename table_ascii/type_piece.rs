@@ -23,7 +23,7 @@ fn type_de_piece(a: char) -> Option<TypePiece> {
     match a {
         'K' | 'k' => Some(TypePiece::Roi),
         'Q' | 'q' => Some(TypePiece::Dame),
-        'C' | 'c' => Some(TypePiece::Tour),
+        'R' | 'r' => Some(TypePiece::Tour),
         'B' | 'b' => Some(TypePiece::Fou),
         'N' | 'n' => Some(TypePiece::Cavalier),
         'P' | 'p' => Some(TypePiece::Pion),
@@ -34,13 +34,8 @@ fn type_de_piece(a: char) -> Option<TypePiece> {
 fn main() {
     let ligne_depart = vec!['r','n','b','q','k','b','n','r'];
 
-    //println!("{:?}", ligne_depart);
-
-    let mut i: usize = 0;
-
-    while i < ligne_depart.len(){
-        println!("{:?}",type_de_piece(ligne_depart[i]));
-        i += 1;
+    for p in ligne_depart.iter(){
+        println!("{:?}",type_de_piece(*p));
     }
-    // println!("{:?}", type_de_piece('Q')); */
+    
 }
