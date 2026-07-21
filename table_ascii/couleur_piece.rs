@@ -25,8 +25,8 @@ fn piece_noir_ou_blanche(a: char) -> Option<Couleur> {
 
 fn verif_piece(a: &Option<Couleur>) {
     match a {
-        Some(Couleur::Blanc) => println!("blanc"),
-        Some(Couleur::Noir) => println!("noir"),
+        Some(Couleur::Blanc) => println!("Blanc"),
+        Some(Couleur::Noir) => println!("Noir"),
         _ => {}
     }
 }
