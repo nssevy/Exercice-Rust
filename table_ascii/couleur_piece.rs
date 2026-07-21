@@ -7,27 +7,33 @@ blanc
 noir
 
 */
+#[derive(Debug)]
+enum Couleur {
+    Blanc,
+    Noir,
+}
 
-fn piece_noir_ou_blanche(a: char) -> Option<&'static str> {  
+fn piece_noir_ou_blanche(a: char) -> Option<Couleur> {  
     if a.is_ascii_uppercase() {
-        Some("blanc")
+        Some(Couleur::Blanc)
     } else if a.is_ascii_lowercase() {
-        Some("noir")
+        Some(Couleur::Noir)
     } else {
        None 
     }
 }
 
-fn verif_piece(a: Option<&'static str>) {
+fn verif_piece(a: &Option<Couleur>) {
     match a {
-        Some(couleur) => println!("{couleur}"),
+        Some(Couleur::Blanc) => println!("blanc"),
+        Some(Couleur::Noir) => println!("noir"),
         _ => {}
     }
 }
 
 fn main(){
 
-    let mut les_pieces: Vec<Option<&str>> = vec![];
+    let mut les_pieces: Vec<Option<Couleur>> = vec![];
 
     let piece_blanche = piece_noir_ou_blanche('Q');
     let piece_noir = piece_noir_ou_blanche('q');
@@ -37,10 +43,12 @@ fn main(){
     les_pieces.push(piece_noir);
     les_pieces.push(chiffre);
 
+    //println!("{:?}", les_pieces);
+
     let mut i: usize = 0;
 
     while i < les_pieces.len() {
-        verif_piece(les_pieces[i]);
+        verif_piece(&les_pieces[i]);
         i += 1;
-    } 
+    }
 }
