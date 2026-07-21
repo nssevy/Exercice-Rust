@@ -32,10 +32,10 @@ fn type_de_piece(a: char) -> Option<TypePiece> {
 }
 
 fn main() {
-    let ligne_depart = vec!['r','n','b','q','k','b','n','r'];
+    let ligne_depart = vec!['r','n','b','q','k','b','n','r']; // Notation Forsyth-Edwards
 
-    for p in ligne_depart.iter(){
-        println!("{:?}",type_de_piece(*p));
+    for &p in ligne_depart.iter(){
+        println!("{:?}",type_de_piece(p));
     }
     
 }
