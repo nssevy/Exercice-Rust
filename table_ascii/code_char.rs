@@ -5,7 +5,10 @@ Indice : char ne calcule pas, mais se convertit avec as. Choisis entre u8 et u32
 */
 
 fn main(){
+    /*
     let a: char = 'A';
-    let bit: u8 = a as u8;
-    println!("{bit}");
+    let octet: u8 = a as u8;
+    */
+    let octet: u8 = 'A' as u8; // Les deux fonctionnes
+    println!("{octet}");
 }
