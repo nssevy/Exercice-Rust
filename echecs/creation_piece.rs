@@ -8,44 +8,49 @@ enum TypePiece {
     Pion // P awn
 }
 
+#[derive(Debug)]
 enum Couleur {
     Blanc, // Majucule
     Noir, // Minuscule
 }
 
+#[derive(Debug)]
 struct Piece {
     couleur: Couleur,
     type_piece : TypePiece,
 }
 
-/*impl Piece {
-    
-}*/
+// Le probleme ce que ca prends en entre des lettre majusucles, des lettres minuscule
+// et des chiffres
+// Les chiffres doivent etr ignorer et renvoyer null
 
-fn blanc_ou_noir(a: char) -> Option<Couleur>{
-    a.is_ascii_uppercase() == true
-}
-
-fn match_lettre(a: char) -> TypePiece {
-    match a {
-        'K' | 'k' => TypePiece::Roi,
-        'Q' | 'q' => TypePiece::Dame,
-        'N' | 'n' => TypePiece::Cavalier,
-        'T' | 't' => TypePiece::Tour,
-        'B' | 'b' => TypePiece::Fou,
-        'P' | 'p' => TypePiece::Pion,
-        _ => todo!(),
+/* impl Piece {
+    fn creation_de_piece(a: char) -> Piece{
+        match_lettre(&a);
     }
+
+    fn match_lettre(a: char) -> Option<Piece::TypePiece> {
+        match a {
+            'K' | 'k' => TypePiece::Roi,
+            'Q' | 'q' => TypePiece::Dame,
+            'N' | 'n' => TypePiece::Cavalier,
+            'T' | 't' => TypePiece::Tour,
+            'B' | 'b' => TypePiece::Fou,
+            'P' | 'p' => TypePiece::Pion,
+            _ => Null,
+        }
+    }
+
+    fn blanc_ou_noir(a: char) -> Option<Piece::Couleur>{
+        if a.is_ascii_uppercase() == 
+    }
+
 }
 
-
-/* fn color_piece(a: char) -> Couleur::Piece {
-    if 
-} */
+*/
 
 fn main() {
-    let 
-    let piece_roi = match_lettre('b');
-    dbg!(piece_roi);
-    //println!("{:?}", std::any::type_name_of_val(&roi));
+    let roi = Piece{couleur: Couleur::Blanc, type_piece:TypePiece::Roi};
+    println!("{:?}", roi);
+   
 }
