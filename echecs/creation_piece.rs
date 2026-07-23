@@ -33,13 +33,21 @@ fn couleur_piece(a: char) -> Option<Couleur> {
 }
 
 fn type_piece(a: char) -> Option<TypePiece>{
-
+ match a {
+        'K' | 'k' => Some(TypePiece::Roi),
+        'Q' | 'q' => Some(TypePiece::Dame),
+        'N' | 'n' => Some(TypePiece::Cavalier),
+        'R' | 'r' => Some(TypePiece::Tour),
+        'B' | 'b' => Some(TypePiece::Fou),
+        'P' | 'p' => Some(TypePiece::Pion),
+        _ => None
+    }
 }
 
 fn main() {
-    let a = couleur_piece('7');
-    println!("{:?}", a);
-    let roi = Piece{couleur: couleur_piece('A').unwrap(), type_piece:TypePiece::Roi};
+    /*let a = couleur_piece('7');
+    println!("{:?}", a); */
+    let roi = Piece{couleur: couleur_piece('A').unwrap(), type_piece: type_piece('Q').unwrap()};
     println!("{:?}", roi);
    
 }
