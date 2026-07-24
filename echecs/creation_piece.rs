@@ -22,18 +22,6 @@ struct Piece {
     type_piece : TypePiece,
 }
 
-impl Piece {
-    fn construction_de_piece(a: char) -> Option<Piece> {
-        let c = couleur_piece(a);
-        let t = type_piece(a);
-
-        match (c, t) {
-            (Some(c),  Some(t)) => Some(Piece{couleur: c, type_piece: t}),
-            _ => None,
-        }
-    }
-}
-
 fn couleur_piece(a: char) -> Option<Couleur> {
     if a.is_ascii_uppercase() {
         Some(Couleur::Blanc)
@@ -56,11 +44,66 @@ fn type_piece(a: char) -> Option<TypePiece>{
     }
 }
 
+impl Piece {
+    fn construction_de_piece(a: char) -> Option<Piece> {
+        let c = couleur_piece(a);
+        let t = type_piece(a);
+
+        match (c, t) {
+            (Some(c),  Some(t)) => Some(Piece{couleur: c, type_piece: t}),
+            _ => None,
+        }
+    }
+}
+
+//____________________________________
+
+fn echequier() {
+    // variable pour les boucles.
+    let mut l: usize = 1;
+    let mut c: usize = 1;
+    let mut i: usize = 0;
+    let mut j: usize = 0;
+    let vide = '.';
+
+    let roi = Piece::construction_de_piece('K');
+    let tour = Piece::construction_de_piece('R');
+
+    let mut ligne = vec![];
+    let mut colonne = vec![];
+
+    
+    while l <= 8 {
+        ligne.push(vide);
+        l += 1;
+    } 
+    
+    
+    while c <= 8 {
+        colonne.push(ligne.clone());
+        c += 1;
+    }
+
+    colonne[2][2] = tour;
+    colonne[6][5] = roi;
+ 
+    while i < 8 {
+        while j < 8 {  
+            print!("{} ", colonne[i][j]);
+            j += 1;
+        } 
+        println!(); // Retour à la ligne
+        i += 1;
+        j = 0; // Reset j pour re-parcourir de l'index 0 
+    }
+}
+
 fn main() {
+    echequier();
     /*let a = couleur_piece('7');
     println!("{:?}", a); */
     //let roi = Piece{couleur: couleur_piece('A').unwrap(), type_piece: type_piece('Q').unwrap()};
-    let roi = Piece::construction_de_piece('K');
-    println!("{:?}", roi);
+    //let roi = Piece::construction_de_piece('K');
+    //println!("{:?}", roi);
    
 }
