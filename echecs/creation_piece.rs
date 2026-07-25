@@ -43,7 +43,8 @@ fn type_piece(a: char) -> Option<TypePiece>{
         _ => None
     }
 }
-
+// Si la fonction renvoie None crée une case vide, de type Option<Piece>
+// et les cases vides sont construite par des chiffres allant de 1 à 8.
 impl Piece {
     fn construction_de_piece(a: char) -> Option<Piece> {
         let c = couleur_piece(a);
@@ -64,20 +65,19 @@ fn echequier() {
     let mut c: usize = 1;
     let mut i: usize = 0;
     let mut j: usize = 0;
-    let vide = '.';
+
+    //let vide Option<Piece> = 'v';
 
     let roi = Piece::construction_de_piece('K');
     let tour = Piece::construction_de_piece('R');
 
     let mut ligne = vec![];
     let mut colonne = vec![];
-
     
     while l <= 8 {
         ligne.push(vide);
         l += 1;
     } 
-    
     
     while c <= 8 {
         colonne.push(ligne.clone());
