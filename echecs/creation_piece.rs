@@ -52,9 +52,14 @@ impl Piece {
 
         match (c, t) {
             (Some(c),  Some(t)) => Some(Piece{couleur: c, type_piece: t}),
+            None => 
             _ => None,
         }
     }
+
+    /*fn case_vide(a: i32) -> Option<Piece> {
+        
+    }*/
 }
 
 //____________________________________
@@ -105,5 +110,6 @@ fn main() {
     //let roi = Piece{couleur: couleur_piece('A').unwrap(), type_piece: type_piece('Q').unwrap()};
     //let roi = Piece::construction_de_piece('K');
     //println!("{:?}", roi);
+    //Je triche
    
 }
