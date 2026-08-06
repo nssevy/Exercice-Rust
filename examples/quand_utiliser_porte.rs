@@ -1,20 +1,17 @@
 /*
 Une porte qui, à un instant donné, est ouverte, fermée ou verrouillée et on veut pouvoir
 la faire passer à l'état suivant selon le cycle ouverte → fermée → verrouillée → ouverte.*/
+#![allow(dead_code)]
 #[derive(Debug)]
-#[allow(unused)]
 enum State {
     Ouvert,
     Ferme,
     Verrouille
 }
 #[derive(Debug)]
-#[allow(unused)]
 struct Porte {
     state: State
 }
-//#[derive(Debug)]
-#[allow(unused)]
 impl Porte {
     fn new(a: State) -> Porte {
         Porte {state: a}
@@ -33,3 +30,5 @@ fn main() {
     porte.swap();
     println!("{:?}", porte);
 }
+
+
