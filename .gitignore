@@ -3,3 +3,7 @@
 !*.rs
 !.gitignore
 .DS_Store
+
+# Added by cargo
+
+/target
