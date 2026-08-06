@@ -11,11 +11,11 @@ struct Compte {
 }
 
 impl Compte{
-    fn deposer(&mut self, a: &i32) {
+    fn deposer(&mut self, a: i32) {
         self.solde += a;
     }
 
-    fn retirer(&mut self, a: &i32) {
+    fn retirer(&mut self, a: i32) {
         self.solde -= a;
     }
 }
@@ -27,8 +27,8 @@ fn main() {
         nom_titulaire: String::from("sevy")
     };
 
-    (&mut sevy).deposer(&10);
-    (&mut sevy).retirer(&5);
+    (&mut sevy).deposer(10);
+    (&mut sevy).retirer(5);
 
     println!("{:?}", sevy);
 }
